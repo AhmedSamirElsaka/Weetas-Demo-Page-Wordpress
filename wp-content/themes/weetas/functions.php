@@ -1,6 +1,6 @@
 <?php 
 
-require('class-wp-bootstrap-navwalker.php');
+// require('class-wp-bootstrap-navwalker.php');
 
 // Enqueue styles
 function my_theme_enqueue_styles() {
@@ -49,17 +49,17 @@ function my_theme_register_nav_menu() {
 add_action('init', 'my_theme_register_nav_menu');
 
 // Display Bootstrap navigation menu
-function my_theme_bootstrap_menu() {
-    wp_nav_menu(array(
-        'theme_location' => 'bootstrap_menu',
-        'menu_class' => 'navbar navbar-right',
-        'container' => false,
-        'walker' => new WP_Bootstrap_Navwalker(),
-        'depth' => 2,
-    ));
-}
+// function my_theme_bootstrap_menu() {
+//     wp_nav_menu(array(
+//         'theme_location' => 'bootstrap_menu',
+//         'menu_class' => 'navbar navbar-right',
+//         'container' => false,
+//         'walker' => new WP_Bootstrap_Navwalker(),
+//         'depth' => 2,
+//     ));
+// }
 
-add_action('init', 'my_theme_bootstrap_menu');
+// add_action('init', 'my_theme_bootstrap_menu');
 
 // Set excerpt length
 function my_theme_excerpt_length($length) {

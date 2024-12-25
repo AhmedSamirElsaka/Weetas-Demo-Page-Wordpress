@@ -18,83 +18,197 @@
 
     <?php wp_head();?>
 
-    <style>
-    body {
-        font-family: 'Roboto', sans-serif;
-    }
 
-    .navbar {
-        padding: 1rem 2rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar-brand {
-        font-size: 1.5rem;
-        font-weight: bold;
-    }
-
-    .navbar-nav .nav-link {
-        font-size: 1.1rem;
-        margin-right: 1rem;
-        transition: background-color 0.3s, color 0.3s;
-    }
-
-    .navbar-nav .nav-link:hover {
-        color: #f8f9fa;
-        background-color: #495057;
-        border-radius: 5px;
-    }
-
-    .dropdown-menu {
-        background-color: #343a40;
-    }
-
-    .dropdown-item {
-        transition: background-color 0.3s;
-    }
-
-    .dropdown-item:hover {
-        background-color: #495057;
-    }
-    </style>
 </head>
 
 <body <?php body_class(); ?>>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand text-white" href="#">Ahmed</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item text-white" href="#">Action</a>
-                        <a class="dropdown-item text-white" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-white" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled text-white" href="#">Disabled</a>
-                </li>
-            </ul>
+    <!-- <div class=" row  main-navbar ">
+        <div>
+            <a href="#">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/image.png" class="brand-image"> </a>
         </div>
-    </nav>
 
+
+
+
+        <div class=" space-between gap-4">
+
+            <div class="dropdown ">
+
+                <div class="btn btn-group dropdown-toggle-split bg-white space-between gap-4" type="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <div>
+                        Rent</div>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item text-black" href="#">Appartments</a></li>
+                    <li><a class="dropdown-item text-black" href="#">Villas</a></li>
+                    <li><a class="dropdown-item text-black" href="#">Buildings</a></li>
+                    <li><a class="dropdown-item text-black" href="#">Offices</a></li>
+                </ul>
+            </div>
+
+            <div class="dropdown ">
+
+                <div class="btn btn-group dropdown-toggle-split bg-white space-between gap-4" type="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <div>
+                        Sale</div>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item text-black" href="#">Appartments</a></li>
+                    <li><a class="dropdown-item text-black" href="#">Villas</a></li>
+                    <li><a class="dropdown-item text-black" href="#">Buildings</a></li>
+                    <li><a class="dropdown-item text-black" href="#">Lands</a></li>
+                    <li><a class="dropdown-item text-black" href="#">Offices</a></li>
+                </ul>
+            </div>
+
+            <div class="dropdown ">
+
+                <div class="btn btn-group dropdown-toggle-split bg-white space-between gap-4" type="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <div>
+                        More fgjjjjjjjjj</div>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item text-black" href="#">Appartments</a></li>
+                    <li><a class="dropdown-item text-black" href="#">Villas</a></li>
+                    <li><a class="dropdown-item text-black" href="#">Buildings</a></li>
+                    <li><a class="dropdown-item text-black" href="#">Offices</a></li>
+                    <li><a class="dropdown-item text-black" href="#">Appartments</a></li>
+                    <li><a class="dropdown-item text-black" href="#">Villas</a></li>
+                    <li><a class="dropdown-item text-black" href="#">Buildings</a></li>
+                    <li><a class="dropdown-item text-black" href="#">Offices</a></li>
+                </ul>
+            </div>
+
+            <span class="btn     ">Weetas Blog </span>
+
+        </div>
+
+        <div style="width: 20px; height: 30px; background-color: #000;"></div>
+
+
+        <div class=" space-between ">
+
+            <div class="btn " style="background-color: #F17B4C;  ">
+                <i class="fa-solid fa-pen" style="color: #ffffff; margin-right: .5rem ;"></i> <span>Request
+                    Property</span>
+            </div>
+            <div class="btn " style="background-color: #FF0000; ">
+                <i class="fa-solid fa-plus" style="color: #ffffff; margin-right: .5rem ;"></i><span>Submit
+                    Property</span>
+            </div>
+            <div class="btn " style="background-color: #fff;">
+                <i class="fa-regular fa-circle-user " style=" margin-right: .5rem ;"></i><span>Submit Property</span>
+            </div>
+
+        </div>
+
+    </div> -->
+
+
+    <div style="display: flex; 
+    flex-direction: row; align-items: center; " class="main-navbar">
+        <div>
+            <a href="#">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/image.png" class="brand-image"> </a>
+        </div>
+
+
+        <div style="align-items: center; display: flex; flex-direction:row ; margin-left: 400px;">
+
+
+
+            <div style="display: flex; flex-direction:row ; align-items: center;">
+
+
+                <div class="dropdown ">
+
+                    <div class="btn btn-group dropdown-toggle-split bg-white space-between gap-4" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <div>
+                            Rent</div>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item text-black" href="#">Appartments</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Villas</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Buildings</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Offices</a></li>
+                    </ul>
+                </div>
+
+                <div class="dropdown ">
+
+                    <div class="btn btn-group dropdown-toggle-split bg-white space-between gap-4" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <div>
+                            Sale</div>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item text-black" href="#">Appartments</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Villas</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Buildings</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Lands</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Offices</a></li>
+                    </ul>
+                </div>
+
+                <div class="dropdown ">
+
+                    <div class="btn btn-group dropdown-toggle-split bg-white space-between gap-4" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <div>
+                            More fgjjjjjjjjj</div>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item text-black" href="#">Appartments</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Villas</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Buildings</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Offices</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Appartments</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Villas</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Buildings</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Offices</a></li>
+                    </ul>
+                </div>
+
+                <div class="btn">Weetas Blog</div>
+
+            </div>
+
+            <div style="width: 2px; height: 30px; background-color: #000; margin-inline: 20px;"></div>
+
+
+
+            <div style="gap:1rem ;  display: flex; flex-direction: row; justify-content: space-between;">
+
+                <div class="btn " style="background-color: #F17B4C;  ">
+                    <i class="fa-solid fa-pen" style="color: #ffffff; margin-right: .5rem ;"></i> <span>Request
+                        Property</span>
+                </div>
+                <div class="btn " style="background-color: #FF0000; ">
+                    <i class="fa-solid fa-plus" style="color: #ffffff; margin-right: .5rem ;"></i><span>Submit
+                        Property</span>
+                </div>
+                <div class="btn " style="background-color: #fff;">
+                    <i class="fa-regular fa-circle-user " style=" margin-right: .5rem ;"></i><span>Login
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
