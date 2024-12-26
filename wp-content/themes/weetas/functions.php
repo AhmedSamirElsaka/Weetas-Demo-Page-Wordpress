@@ -74,3 +74,16 @@ function my_theme_excerpt_more($more) {
 }
 
 add_filter('excerpt_more', 'my_theme_excerpt_more');
+
+
+function main_sidebar () {
+    register_sidebar(array(
+        'name' => 'Main Sidebar',
+        'id' => 'main-sidebar',
+        'before_widget' => '<div class="widget">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ));
+}
+add_action('widgets_init', 'main_sidebar');

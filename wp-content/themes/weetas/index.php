@@ -2,354 +2,33 @@
 get_header();
 ?>
 
-<!-- <style>
-.mainContainer {
-    background-color: #F1F1F1;
-    padding-inline: 4rem;
-    padding-block: 2rem;
+
+<style>
+body.modal-open {
+    overflow: visible !important;
+    /* Allow scrolling */
 }
 
-.topBarContainer {
-    display: flex;
-    gap: 1rem;
-    justify-content: space-between;
-    align-items: center;
-        border: 4px solid #000;
-
-}
-
-.searchTitle {
-    color: #4D4C4C;
-    margin-bottom: 0.5rem;
-}
-
-.searchInput {
-    background-color: #FEF3EE;
-    border: 1px solid #F8DED4;
-    padding: .5rem;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    position: relative;
-}
-
-.searchInput .searchIcon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: opacity 0.2s ease-in-out;
-}
-
-.searchInput .searchIcon:hover {
-    opacity: 0.8;
-}
-
-.searchInput .searchIcon:active {
-    opacity: 0.6;
-}
-
-.searchInputform {
-    border: none;
-    background-color: #FEF3EE;
-    width: 100%;
-    color: #000;
-    outline: none;
-}
-
-.dropdown {
-    width: 100%;
-    background-color: #F8F8F8;
-}
-
-.btn-group {
-    width: 100%;
-    background-color: #F8F8F8;
-    color: #000;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.btn-group div {
-    text-align: left;
-
-}
-
-.dropdown-item {
-    color: #F1F1F1;
-}
-
-.btn-search {
-    width: 100%;
-    background-color: #EE4035;
-    color: #FFF;
-}
-
-.btn-cancel {
-    width: 100%;
-    background-color: #fff;
-    color: #000;
-}
-
-.btn-search:hover {
-    background-color: #EE4035;
-    color: #FFF;
-}
-
-.modal-header h2 {
-    color: #000;
-    font-family: Manrope;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-
-.modal-header {
-    padding: 2px 16px;
-    background-color: #fff;
-    color: black;
-    justify-content: space-between;
-
-}
-
-/* The Modal (background) */
-.modal {
+.modal-backdrop {
     display: none;
-    /* Hidden by default */
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    width: 40%;
-    height: fit-content;
-    overflow: auto;
-    background-color: #fff;
-    padding: 16px;
-    border-radius: 8px;
+    /* Optional: Remove the black overlay */
 }
 
-
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-    from {
-        top: -300px;
-        opacity: 0
-    }
-
-    to {
-        top: 0;
-        opacity: 1
-    }
-}
-
-@keyframes animatetop {
-    from {
-        top: -300px;
-        opacity: 0
-    }
-
-    to {
-        top: 0;
-        opacity: 1
-    }
-}
-
-/* The Close Button */
-.close {
-    color: black;
-    font-size: 18px;
-}
-
-.close:hover,
-.close:focus {
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
+.modal {
+    z-index: 1050;
+    /* Ensure modal is above the backdrop */
+    pointer-events: auto;
+    background-color: rgb(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    /* Ensure the modal is interactive */
 }
 
 .modal-body {
-    padding: 36px 16px;
-}
-
-
-.radio-group {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    background-color: white;
-    padding-top: 8px;
-    border-radius: 8px;
-    width: 90%;
-
-}
-
-.radio-group input[type="radio"] {
-    display: none;
-}
-
-.radio-label {
-    text-align: center;
-    padding: 10px 20px;
-    border: 2px solid #ddd;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    position: relative;
-    background-color: #F0F0F0;
-}
-
-.radio-label::before {
-    content: "";
-    width: 16px;
-    height: 16px;
-    border: 2px solid #ddd;
-    border-radius: 50%;
-    background-color: transparent;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    color: white;
-    font-weight: bold;
-}
-
-.radio-group :checked+.radio-label {
-    border-color: #ff0000;
-    color: #ff0000;
-    font-weight: bold;
-}
-
-.radio-group :checked+.radio-label::before {
-    background-color: #ff0000;
-    border-color: #ff0000;
-    content: "✔";
-}
-
-
-.price-input {
-    width: 100%;
-    display: flex;
-    margin: 30px 0 56px;
-    align-items: center;
-}
-
-.price-input .field {
-    display: flex;
-    width: 100%;
-    height: 45px;
-    align-items: center;
-
-
-}
-
-.field input {
-    width: 100%;
-    height: 100%;
-    outline: none;
-    font-size: 19px;
-    margin-left: 12px;
-    border-radius: 5px;
-    text-align: center;
-    border: 1px solid #999;
-    -moz-appearance: textfield;
-    justify-content: space-between;
-}
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-
-.price-input .separator {
-    width: 60px;
-    display: flex;
-    font-size: 19px;
-    align-items: center;
-    justify-content: center;
-    height: 1px;
-    background-color: #DBDBDB;
-    margin: 0px 56px 0px 56px;
-
-}
-
-.slider {
-    height: 5px;
-    position: relative;
-    background: #ddd;
-    border-radius: 5px;
-    margin-top: 56px;
-}
-
-.slider .progress {
-    height: 100%;
-    left: 25%;
-    right: 25%;
-    position: absolute;
-    border-radius: 5px;
-    background: #EE4035;
-}
-
-.range-input {
-    position: relative;
-}
-
-.range-input input {
-    position: absolute;
-    width: 100%;
-    height: 5px;
-    top: -5px;
-    background: none;
-    pointer-events: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    height: 36px;
-    width: 36px;
-    border-radius: 50%;
-    background: #fff;
-    pointer-events: auto;
-    -webkit-appearance: none;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
-    border: 3px solid #EE4035;
-    /* Define a border with width, style, and color */
-}
-
-/* input[type="range"]::-moz-range-thumb {
-    height: 17px;
-    width: 17px;
-    border: none;
-    border-radius: 50%;
-    background: #fff;
-    pointer-events: auto;
-    -moz-appearance: none;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
-    border-width: 6px;
-    border: #EE4035;
-} */
-
-
-
-.modal-footer {
-    padding: 2px 16px;
     background-color: #fff;
-    color: white;
 }
-</style> -->
-
-<div>
+</style>
+<div style="overflow: scroll; display: flex; flex-direction: column; width: 100%; height:100%">
 
     <div class="mainContainer">
         <div class="row topBarContainer">
@@ -425,13 +104,13 @@ input[type="range"]::-webkit-slider-thumb {
 
         <!-- Submit Button -->
 
-        <div class="modal" id="myModal">
+        <div class="modal " id="myModal">
             <div class="modal-header">
                 <h2>Filter</h2>
                 <i class="fa-regular fa-circle-xmark close" style="color: #000000;"></i>
             </div>
             <!-- <br> -->
-            <div class="modal-body">
+            <div class="modal-body top-bar-filter-modal">
                 <span>Select Type</span>
 
 
@@ -545,46 +224,266 @@ input[type="range"]::-webkit-slider-thumb {
                 <h3>Modal Footer</h3>
             </div>
         </div>
-
-
     </div>
+    <div class="row">
+        <div class="col-9"
+            style=" padding-inline: 200px;   padding-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+            <span
+                style="color: #212121; font-family: Manrope; font-size: 30px; font-style: normal; font-weight: 800; line-height: normal;">5,354
+                Apartments for rent in Bahrain</span> <span
+                style="color: #EB4A48; font-family: Manrope; font-size: 16px; font-style: normal; font-weight: 600; line-height: normal;">
+                32 New Posted </span> <span
+                style="color: #000; font-family: Manrope; font-size: 18px; font-style: normal; font-weight: 700; line-height: normal; font-size: 1.5rem; margin-top: 24px;">
+                Check also </span>
+            <div
+                style="border-radius: 10px; background: #F9F9F9; width: 100%;  padding-block: 24px; display: flex; flex-direction: column; padding-inline: 16px; gap: 24px;">
+                <div style="display: flex; flex-direction: row; gap: 100px;">
+                    <div> <span
+                            style="color: #F00; font-family: Manrope; font-size: 18px; font-style: normal; font-weight: 700; line-height: normal;">(
+                            811 )</span> <span
+                            style="color: #000; font-family: Manrope; font-size: 18px; font-style: normal; font-weight: 400; line-height: normal;">Three
+                            bedroom apartments for rent in Bahrain</span>
+                    </div>
+                    <div>
+                        <span
+                            style="color: #F00; font-family: Manrope; font-size: 18px; font-style: normal; font-weight: 700; line-height: normal;">(
+                            2,865 )</span> <span
+                            style="color: #000; font-family: Manrope; font-size: 18px; font-style: normal; font-weight: 400; line-height: normal;">Two
+                            bedroom apartments for rent in Bahrain</span>
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: row; gap: 100px;">
+                    <div> <span
+                            style="color: #F00; font-family: Manrope; font-size: 18px; font-style: normal; font-weight: 700; line-height: normal;">(
+                            1,337 )</span> <span
+                            style="color: #000; font-family: Manrope; font-size: 18px; font-style: normal; font-weight: 400; line-height: normal;">One
+                            bedroom apartments for rent in Bahrain</span> </div>
+                    <div> <span
+                            style="color: #F00; font-family: Manrope; font-size: 18px; font-style: normal; font-weight: 700; line-height: normal;">(
+                            2,865 )</span> <span
+                            style="color: #000; font-family: Manrope; font-size: 18px; font-style: normal; font-weight: 400; line-height: normal;">Two
+                            bedroom apartments for rent in Bahrain</span> </div>
+                </div>
+            </div>
+
+            <div
+                style="display: flex; flex-direction: row; align-items: center; background: #fff; width:fit-content ; margin-top: 24px; gap:16px">
+                <span style="width: fit-content; ">Sort by : </span>
+                <div class="dropdown" style="display: flex; width: fit-content;">
+
+                    <div class="btn btn-group dropdown-toggle-split bg-white space-between gap-4" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false"
+                        style="display: flex; width: fit-content; height: 38px; padding: 5px 15px; align-items: center; border-radius: 5px; border: 0.5px solid var(--Light-Gray, #D9D9D9); background: var(--Extra-Light-Gray, #F8F8F8);">
+                        <div>
+                            Newest to Oldest</div>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item text-black" href="#">Newest to Oldest</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Oldest to Newest</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Date Updated</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Bedroom Less</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Bedroom More</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Price High To Low</a></li>
+                        <li><a class="dropdown-item text-black" href="#">Price Low To High</a></li>
+
+                    </ul>
+                </div>
 
 
 
-    <div style=" padding-inline: 2rem;
-  padding-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
-        <span
-            style="color: #212121; font-family: Manrope; font-size: 30px; font-style: normal; font-weight: 800; line-height: normal;">5,354
-            Apartments for rent in Bahrain</span>
-
-        <span style="color: #EB4A48;
-font-family: Manrope;
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;">
-            32 New Posted
-        </span>
 
 
-        <span style="color: #000;
-font-family: Manrope;
-font-size: 18px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-font-size: 1.5rem;
-margin-top: 24px;">
-            Check also
-        </span>
+                <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#filtersModal"
+                    style="background: #EB4A48; width:100px; color: #fff;">
+                    Filters
+                </button>
+
+
+                <!-- <div class=" modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true"> -->
+                <div class="modal fade" id="filtersModal" tabindex="-1" aria-labelledby="filtersModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="filtersModalLabel">
+                                    <?php esc_html_e('Filter Properties', 'weetas2024'); ?></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="<?php esc_attr_e('Close', 'weetas2024'); ?>"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="GET" action="">
+                                    <input type="hidden" name="search"
+                                        value="<?php echo esc_attr($_GET['search'] ?? ''); ?>">
+                                    <input type="hidden" name="town"
+                                        value="<?php echo esc_attr($_GET['town'] ?? ''); ?>">
+                                    <div class="mb-3">
+                                        <label for="min_price"
+                                            class="form-label"><?php esc_html_e('Min Price:', 'weetas2024'); ?></label>
+                                        <input type="number" name="min_price" id="min_price" class="form-control"
+                                            value="<?php echo esc_attr($_GET['min_price'] ?? ''); ?>"
+                                            placeholder="<?php esc_attr_e('Min Price', 'weetas2024'); ?>">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="max_price"
+                                            class="form-label"><?php esc_html_e('Max Price:', 'weetas2024'); ?></label>
+                                        <input type="number" name="max_price" id="max_price" class="form-control"
+                                            value="<?php echo esc_attr($_GET['max_price'] ?? ''); ?>"
+                                            placeholder="<?php esc_attr_e('Max Price', 'weetas2024'); ?>">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal"><?php esc_html_e('Close', 'weetas2024'); ?></button>
+                                        <button type="submit"
+                                            class="btn btn-primary"><?php esc_html_e('Apply Filters', 'weetas2024'); ?></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
 
-        <div style="border-radius: 10px;
-background: #F9F9F9; width: 90%; padding-inline: 100px; padding-block: 24px; display: flex; flex-direction: row;">
-            <div>hello </div>
+            </div>
+
+
+
+            <php>
+                <?php
+        if (have_posts()) {
+            while (have_posts()) {
+                the_post(); 
+                
+?>
+
+
+                <div class="main-post">
+
+                    <!-- <?php echo get_fields()['name'];?>
+                    <?php echo get_fields()['price'];?>
+                    <?php echo get_fields()['place'];?>
+                    <?php echo get_fields()['state'];?>
+                    <?php echo get_fields()['is_inclusive'];?>
+                    <?php echo get_fields()['noof_beds'];?>
+                    <?php echo get_fields()['noof_baths'];?>
+                    <?php echo get_fields()['ref_id'];?>
+                    <?php echo get_fields()['producer_number'];?> -->
+
+
+                    <div style="display: flex; flex-direction: row; gap: 16px;">
+
+                        <img src="<?php echo get_fields()['product_image'];?>" class="post_image">
+                        <div style="display: flex; flex-direction: column; gap: 8px; padding: 16px;">
+                            <div
+                                style="color: #000; font-family: Manrope; font-size: 18px; font-style: normal; font-weight: 700; line-height: normal;">
+                                <?php echo get_fields()['name'];?></div>
+
+                            <div
+                                style="color: #F00; font-family: Manrope; font-size: 30px; font-style: normal; font-weight: 700; line-height: normal; display: flex; flex-direction: row; gap: 8px; align-items: center;">
+                                <?php echo get_fields()['price'];?><div
+                                    style="color: #212121; font-family: Manrope; font-size: 14px; font-style: normal; font-weight: 700; line-height: normal;">
+                                    / Month</div>
+                            </div>
+                            <div style="display: flex; flex-direction: row; gap: 8px; margin-top: 24px;">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <div
+                                    style="color: #757373; font-family: Manrope; font-size: 13px; font-style: normal; font-weight: 500; line-height: normal;">
+                                    <?php echo get_fields()['place'];?>
+                                </div>
+                            </div>
+
+
+                            <div
+                                style="display: flex; flex-direction: row; gap: 16px; margin-top: 8px; align-items: center;">
+                                <div style="display: flex; flex-direction: row; gap:8px">
+
+                                    <i class="fa-solid fa-cube"></i>
+                                    <div
+                                        style="color: #757373; font-family: Manrope; font-size: 13px; font-style: normal; font-weight: 500; line-height: normal;">
+                                        <?php echo get_fields()['state'];?>
+                                    </div>
+                                </div>
+                                <div
+                                    style="display: flex; flex-direction: row; gap:8px ; background-color: #FEF3EE; padding-inline: 16px; padding-block:8px ; border-radius: 8px;">
+
+                                    <i class="fa-solid fa-bolt-lightning" style="color: #EE4035;"></i>
+                                    <div
+                                        style="color: #EE4035; font-family: Manrope; font-size: 12px; font-style: normal; font-weight: 700; line-height: normal;">
+                                        <?php echo get_fields()['is_inclusive'];?>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div
+                                style="display: flex; flex-direction: row; gap: 16px; margin-top: 8px; align-items: center; ">
+                                <div style="display: flex; flex-direction: row; gap:8px ;align-items: center;">
+
+                                    <i class="fa-solid fa-bed"></i>
+                                    <div
+                                        style="color: #000; font-family: Manrope; font-size: 13px; font-style: normal; font-weight: 500; line-height: normal;">
+                                        <?php echo get_fields()['noof_beds'];?>
+                                    </div>
+                                </div>
+                                <div
+                                    style="display: flex; flex-direction: row; gap:8px ; background-color: #fff; padding-inline: 16px; padding-block:8px ; border-radius: 8px; align-items: center;">
+
+                                    <i class="fa-solid fa-bath"></i>
+                                    <div
+                                        style=" font-family: Manrope; font-size: 12px; font-style: normal; font-weight: 700; line-height: normal;">
+                                        <?php echo get_fields()['noof_baths'];?>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div style="display: flex; flex-direction: row; gap: 16px;">
+                                <div class="btn"
+                                    style="display: flex; border-radius: 3px; color:#F17B4C ;    background: var(--Extra-Light-Orange, #FEF3EE); width: 170px; height: 46px; padding: 10px 20px; justify-content: center; align-items: center; gap: 15px;">
+                                    Show Number
+                                </div>
+
+                                <div class="btn"
+                                    style="display: flex; border-radius: 3px; color:#fff ;    background: var(--Extra-Light-Orange, #FF0000); width: 170px; height: 46px; padding: 10px 20px; justify-content: center; align-items: center; gap: 15px;">
+                                    Inquire Now
+                                </div>
+
+                                <div class="btn"
+                                    style="border-radius: 6px; align-items: center; background: #FEF3EE; justify-content: center;">
+                                    <i class="fa-solid fa-ellipsis-vertical fa-xl"
+                                        style="color: #F17B4C; align-items: center;"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php
+            }
+        }
+        ?>
+
+                </div>
+            </php>
+
+
+        </div>
+
+
+        <div class="col-3 ">
+            <?php 
+                    if(is_active_sidebar('main-sidebar')){
+                        dynamic_sidebar('main-sidebar');
+                    }
+                
+                
+                ?>
         </div>
     </div>
+
+
+
+</div>
 
 
 
@@ -674,3 +573,32 @@ rangeInput.forEach((input) => {
     });
 });
 </script>
+
+
+<!-- <script>
+// Get the modal
+var modal = document.getElementById("filtersModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("filter_button_body");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0] || document.querySelector(".modal-header .close");
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script> -->
