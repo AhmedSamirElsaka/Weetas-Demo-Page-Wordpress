@@ -105,12 +105,12 @@ body.modal-open {
         <!-- Submit Button -->
 
         <div class="modal " id="myModal">
-            <div class="modal-header">
+            <div class="modal-header" style="width:50%; position: absolute; top:19%; left:25%; padding: 24px;">
                 <h2>Filter</h2>
                 <i class="fa-regular fa-circle-xmark close" style="color: #000000;"></i>
             </div>
             <!-- <br> -->
-            <div class="modal-body top-bar-filter-modal">
+            <div class="modal-body top-bar-filter-modal" style="width:50%; position: absolute; top:25%; left:25%;">
                 <span>Select Type</span>
 
 
@@ -176,9 +176,9 @@ body.modal-open {
                                 <i class="fa-solid fa-chevron-down"></i>
                             </div>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">1</a></li>
-                                <li><a class="dropdown-item" href="#">2</a></li>
-                                <li><a class="dropdown-item" href="#">3</a></li>
+                                <li><a class="dropdown-item" href="#" style="color: #000;">1</a></li>
+                                <li><a class="dropdown-item" href="#" style="color: #000;">2</a></li>
+                                <li><a class="dropdown-item" href="#" style="color: #000;">3</a></li>
                             </ul>
                         </div>
                     </div>
@@ -196,9 +196,9 @@ body.modal-open {
                                 <i class="fa-solid fa-chevron-down"></i>
                             </div>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">1</a></li>
-                                <li><a class="dropdown-item" href="#">2</a></li>
-                                <li><a class="dropdown-item" href="#">3</a></li>
+                                <li><a class="dropdown-item" href="#" style="color: #000;">1</a></li>
+                                <li><a class="dropdown-item" href="#" style="color: #000;">2</a></li>
+                                <li><a class="dropdown-item" href="#" style="color: #000;">3</a></li>
                             </ul>
                         </div>
                     </div>
@@ -220,9 +220,7 @@ body.modal-open {
 
             </div>
 
-            <div class="modal-footer">
-                <h3>Modal Footer</h3>
-            </div>
+
         </div>
     </div>
     <div class="row">
@@ -479,6 +477,95 @@ body.modal-open {
                 
                 ?>
         </div>
+
+
+        <div class="pagination-container">
+            <?php wpbeginner_numeric_posts_nav(); ?>
+        </div>
+
+
+
+        <span style="color: #212121; font-family: Manrope; font-size: 24px; font-style: normal; font-weight: 800; line-height: normal;
+            margin-bottom: 56px; margin-inline: 200px;">What
+            is the average price of Apartments in Bahrain?</span>
+
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <i class="fa-solid fa-dollar-sign"></i> Apartment Size
+                            <span></span>
+                        </th>
+                        <th>
+
+                        </th>
+                        <th>
+                            <i class="fa-solid fa-dollar-sign"></i> Average Price
+                            <span></span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Studio</td>
+                        <td>
+                            <a href="#" class="button">See 256 Apartments</a>
+                        </td>
+                        <td>308 BHD</td>
+                    </tr>
+                    <tr>
+                        <td>Studio</td>
+                        <td>
+                            <a href="#" class="button">See 256 Apartments</a>
+                        </td>
+                        <td>308 BHD</td>
+                    </tr>
+                    <tr>
+                        <td>Studio</td>
+                        <td>
+                            <a href="#" class="button">See 256 Apartments</a>
+                        </td>
+                        <td>308 BHD</td>
+                    </tr>
+                    <tr>
+                        <td>Studio</td>
+                        <td>
+                            <a href="#" class="button">See 256 Apartments</a>
+                        </td>
+                        <td>308 BHD</td>
+                    </tr>
+                    <tr>
+                        <td>Studio</td>
+                        <td>
+                            <a href="#" class="button">See 256 Apartments</a>
+                        </td>
+                        <td>308 BHD</td>
+                    </tr>
+                    <tr>
+                        <td>Studio</td>
+                        <td>
+                            <a href="#" class="button">See 256 Apartments</a>
+                        </td>
+                        <td>308 BHD</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="expandable">
+            <div class="expandable-header" onclick="toggleExpand()">
+                Is Bahrain a safe country?
+                <div class="icon" id="icon">&#9660;</div>
+            </div>
+            <div class="expandable-content" id="content">
+                Bahrain is generally considered a safe country for both locals and visitors. It has a low crime rate,
+                and its government prioritizes the safety and security of its citizens and residents.
+            </div>
+        </div>
+
     </div>
 
 
@@ -602,3 +689,13 @@ window.onclick = function(event) {
     }
 }
 </script> -->
+
+
+<script>
+function toggleExpand() {
+    const content = document.getElementById('content');
+    const icon = document.getElementById('icon');
+    content.classList.toggle('expanded');
+    icon.classList.toggle('rotated');
+}
+</script>

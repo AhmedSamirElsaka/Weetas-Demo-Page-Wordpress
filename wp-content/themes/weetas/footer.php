@@ -1,4 +1,4 @@
-<div class="footer text-center">
+<div class="footer text-center" style="margin-top: 400px ">
     All Rights Reserved to <?php bloginfo('name')  ?> &copy; <?php echo date('Y') ?>
 </div>
 <?php wp_footer();?>
